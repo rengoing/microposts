@@ -76,4 +76,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # Full error reports are disabled and caching is turned on.
+  config.consider_all_requests_local       = false
+  
+  # Full error reports are disabled and caching is turned on.
+  config.consider_all_requests_local       = true
 end
