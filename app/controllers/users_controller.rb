@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_params, only: [:show, :edit, :update, :followings, :followers]
+  before_action :set_params, only: [:show, :edit, :update, :followings, :followers, :favorites]
   before_action :correct_user, only: [:edit, :update]
   
   def show
+    @title = 'Micropost'
+    @count = @user.microposts.count
     @microposts = @user.microposts.order(created_at: :desc)
   end
   
@@ -43,6 +45,14 @@ class UsersController < ApplicationController
     @title = "Followers"
     @users = @user.follower_users
     render 'show_follow'
+  end
+  
+  # お気に入り表示機能
+  def favorites
+    @title = 'Favorites'
+    @count = @user.favorite_microposts.count
+    @microposts = @user.favorite_microposts
+    render 'show'
   end
   
   private

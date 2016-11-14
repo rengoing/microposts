@@ -1,0 +1,13 @@
+<section class="user_info">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+  <p>
+    <ul style="list-style:none;">
+      <li>Location：<%= @user.location %></li>
+    </ul>
+  </p>
+</section>
+<%= render 'stats' %>
+<%= link_to 'favorite', favorites_user_path %>
