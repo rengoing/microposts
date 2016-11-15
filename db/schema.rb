@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20161114020325) do
   end
 
   add_index "favorites", ["micropost_id"], name: "index_favorites_on_micropost_id"
+  add_index "favorites", ["user_id", "micropost_id"], name: "index_favorites_on_user_id_and_micropost_id", unique: true
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "microposts", force: :cascade do |t|
